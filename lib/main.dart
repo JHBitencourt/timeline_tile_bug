@@ -48,16 +48,14 @@ class _TimelineListWidgetState extends State<TimelineListWidget> {
             itemBuilder: (BuildContext context, int index) {
               return TimelineTile(
                 alignment: TimelineAlign.manual,
-                lineX: 0.1,
+                lineXY: 0.1,
                 isFirst: index == 0,
                 isLast: index == _totalLength - 1,
                 indicatorStyle: IndicatorStyle(
-                  indicatorY: 0.25,
-                  height: 60,
-                  width: 60,
+                  indicatorXY: 0,
+                  height: 50,
+                  width: 50,
                   indicator: Container(
-                    height: 60,
-                    width: 60,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
@@ -68,13 +66,14 @@ class _TimelineListWidgetState extends State<TimelineListWidget> {
                       ),
                     ),
                   ),
-                  drawGap: true,
+//                  drawGap: true,
                 ),
-                topLineStyle: LineStyle(
+                beforeLineStyle: LineStyle(
                   color: Colors.grey,
-                  width: 3,
+                  thickness: 3,
                 ),
-                rightChild: Container(
+                startChild: Container(),
+                endChild: Container(
                   margin: EdgeInsets.symmetric(
                     horizontal: 16.0,
                   ),
@@ -242,9 +241,9 @@ class _TimelineListWidgetState extends State<TimelineListWidget> {
                 ),
               ],
             ),
-            SizedBox(
-              height: index == _totalLength - 1 ? 8.0 : 32.0,
-            ),
+//            SizedBox(
+//              height: index == _totalLength - 1 ? 8.0 : 32.0,
+//            ),
           ],
         ),
       );
